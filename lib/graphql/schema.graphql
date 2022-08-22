@@ -1,0 +1,77 @@
+type Query {
+	listRooms(limit: Int): RoomConnection
+	listMessagesForRoom(
+		roomId: ID!
+		sortDirection: ModelSortDirection
+	): MessageConnection
+}
+
+type Mutation {
+	createMessage(input: MessageInput!): Message
+	updateMessage(input: MessageInput!): Message
+	createRoom(input: RoomInput!): Room
+}
+
+type Subscription {
+	onCreateRoom: Room @aws_subscribe(mutations: ["createRoom"])
+	onCreateMessageByRoomId(roomId: ID): Message
+		@aws_subscribe(mutations: ["createMessage"])
+	onUpdateMessage(roomId: ID): Message
+		@aws_subscribe(mutations: ["updateMessage"])
+}
+
+type RoomConnection {
+	items: [Room!]
+	nextToken: String
+}
+
+type Room {
+	id: ID!
+	name: String!
+	messages(
+		sortDirection: ModelSortDirection
+		limit: Int
+		nextToken: String
+	): MessageConnection
+	createdAt: AWSDateTime
+	updatedAt: AWSDateTime
+}
+
+input RoomInput {
+	name: String!
+}
+
+type MessageConnection {
+	items: [Message!]
+	nextToken: String
+}
+
+type Message {
+	id: ID!
+	content: MessageContent!
+	owner: String!
+	createdAt: AWSDateTime!
+	updatedAt: AWSDateTime!
+	roomId: ID!
+}
+
+type MessageContent {
+	text: String
+	imageId: String
+}
+
+input MessageInput {
+	content: MessageContentInput!
+	roomId: ID!
+	id: ID
+}
+
+input MessageContentInput {
+	text: String
+	imageId: String
+}
+
+enum ModelSortDirection {
+	ASC
+	DESC
+}

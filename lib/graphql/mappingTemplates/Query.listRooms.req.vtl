@@ -1,0 +1,10 @@
+#set( $limit = $util.defaultIfNull($ctx.args.limit, 100) )
+#set( $ListRequest = {
+  "version": "2018-05-29",
+  "operation": "Scan",
+  "limit": $limit
+})
+#if( $ctx.args.nextToken )
+  #set( $ListRequest.nextToken = $ctx.args.nextToken )
+#end
+$util.toJson($ListRequest)

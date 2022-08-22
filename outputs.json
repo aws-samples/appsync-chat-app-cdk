@@ -1,0 +1,26 @@
+{
+  "DatabaseStack": {
+    "ExportsOutputRefRoomTableA2D324D89965FEA1": "DatabaseStack-RoomTableA2D324D8-18SI1HGGIX5N5",
+    "ExportsOutputFnGetAttRoomTableA2D324D8ArnDFEDD0D1": "arn:aws:dynamodb:us-east-1:936471194299:table/DatabaseStack-RoomTableA2D324D8-18SI1HGGIX5N5",
+    "ExportsOutputRefMessageTable477906EA4B75E10A": "DatabaseStack-MessageTable477906EA-1LRBF6MOZAL3N",
+    "ExportsOutputFnGetAttUserTableBD4BF69EArn9A5B685A": "arn:aws:dynamodb:us-east-1:936471194299:table/DatabaseStack-UserTableBD4BF69E-14NTYJG1Z9HDD",
+    "ExportsOutputRefUserTableBD4BF69E1F4D2BA4": "DatabaseStack-UserTableBD4BF69E-14NTYJG1Z9HDD",
+    "ExportsOutputFnGetAttMessageTable477906EAArnA721D903": "arn:aws:dynamodb:us-east-1:936471194299:table/DatabaseStack-MessageTable477906EA-1LRBF6MOZAL3N"
+  },
+  "AuthStack": {
+    "UserPoolClientId": "3ovgiu22s9ir5f9e4halgqdqff",
+    "ExportsOutputRefChatIdentityPoolUnauthenticatedRoleCB37EED83645BD78": "AuthStack-ChatIdentityPoolUnauthenticatedRoleCB37E-1RGZ3RAN4FA46",
+    "UserPoolId": "us-east-1_pR5RwsOOf",
+    "ExportsOutputRefChatIdentityPoolAuthenticatedRole7F3894611BFA3138": "AuthStack-ChatIdentityPoolAuthenticatedRole7F38946-16XDM24E0Z0UW",
+    "IdentityPoolId": "us-east-1:f2ccfb41-b7d9-4f19-b321-f677c2d3c61c",
+    "ExportsOutputRefChatUserPool04B192D36EC8BE39": "us-east-1_pR5RwsOOf"
+  },
+  "AppSyncAPIStack": {
+    "GraphQLAPIID": "lfazhb6ibvenjd2o3epthq5q6m",
+    "GraphQLAPIURL": "https://b26fgdblavfmrptpxtssrof3im.appsync-api.us-east-1.amazonaws.com/graphql"
+  },
+  "FileStorageStack": {
+    "BucketName": "filestoragestack-s3bucket64cb25af-1psf86hwthatd",
+    "BucketRegion": "us-east-1"
+  }
+}
