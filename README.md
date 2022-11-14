@@ -1,4 +1,4 @@
-## AppSync Chat App CDK Backend
+## AWS AppSync Chat App CDK Backend
 
 This repo is part of an official AWS Blog post that showcases how to create a serverless, real-time backend that integrates with a frontend application.
 
@@ -6,41 +6,41 @@ This repo is part of an official AWS Blog post that showcases how to create a se
 
 ![service diagram](./diagram.png)
 
-### Cognito
+### Amazon Cognito
 
 The `lib/authStack.ts` file creates the following services
 
-- Cognito Userpool
-- Cognito Userpool Group (if specified)
-- Cognito Identity Pool
+- Cognito user pool
+- Cognito user pool group (if specified)
+- Cognito identity pool
 
 🗒️ The identity pool helps in providing IAM permission access to both authenticated and unauthenticated users as well as AWS services such as Amazon S3.
 
-### Lambda
+### AWS Lambda
 
 The `lib/functions` directory contains a `postConfirmationTrigger` folder. The Lambda function in this folder adds a user to DynamoDB after a user signs up through our Cognito service.
 
-### S3
+### Amazon Simple Storage Service (Amazon S3)
 
-The `lib/fileStorage.ts` file creates an Amazon S3 bucket and comes configured with managed polcies that are in line with what the [Amplify Storage](https://docs.amplify.aws/cli/storage/import/#configuring-iam-role-to-use-amplify-recommended-policies) library uses as acceptable defaults.
+The `lib/fileStorage.ts` file creates an Amazon S3 bucket and comes configured with managed polices that are in line with what the [Amplify Storage](https://docs.amplify.aws/cli/storage/import/#configuring-iam-role-to-use-amplify-recommended-policies) library uses as acceptable defaults.
 
-### AppSync API
+### AWS AppSync API
 
-The`lib/apiStack.ts` file creates an AppSync API that is based on a `Todo` application.
+The`lib/apiStack.ts` file creates an AWS AppSync API that is based on a `Todo` application.
 
 Note that this stack comes preconfigured with the following:
 
 - A sample graphql schema
-- Userpool authorization
+- User pool authorization
 - API Key authorization
 - IAM authorization
 - DynamoDB as a datasource
 
-In addition, this package makes use of the `@aws-cdk/aws-appsync-alpha` [npm package](https://www.npmjs.com/package/@aws-cdk/aws-appsync-alpha) for easiliy creating the request and response mapping templates.
+In addition, this package makes use of the `@aws-cdk/aws-appsync-alpha` [npm package](https://www.npmjs.com/package/@aws-cdk/aws-appsync-alpha) for easily creating the request and response mapping templates.
 
-### DynamoDB API
+### Amazon DynamoDB API
 
-The `lib/databaseStack.ts` file creates a single DynamoDB table that is used as a datasource for the AppSync API above.
+The `lib/databaseStack.ts` file creates a single DynamoDB table that is used as a datasource for the AWS AppSync API above.
 
 ## Integrating with a frontend
 
